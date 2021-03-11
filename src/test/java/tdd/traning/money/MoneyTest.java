@@ -3,6 +3,7 @@ package tdd.traning.money;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class MoneyTest {
 
@@ -12,10 +13,11 @@ public class MoneyTest {
         Dollar dollar = new Dollar(5);
 
         // when
-        dollar.times(2);
+        Dollar product = dollar.times(2);
 
         // then
-        assertEquals(10, dollar.getAmount());
+        assertNotEquals(10, dollar.getAmount());
+        assertEquals(10, product.getAmount());
     }
 
 }
