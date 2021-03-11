@@ -12,11 +12,10 @@ public class MoneyTest {
         Dollar dollar = new Dollar(5);
 
         // when
-        Dollar product = dollar.times(2);
 
         // then
-        assertNotEquals(10, dollar.getAmount());
-        assertEquals(10, product.getAmount());
+        assertNotEquals(new Dollar(5), dollar.times(2));
+        assertEquals(new Dollar(10), dollar.times(2));
     }
     
     @Test
