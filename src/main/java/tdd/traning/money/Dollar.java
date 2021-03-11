@@ -2,6 +2,8 @@ package tdd.traning.money;
 
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 public class Dollar {
 
@@ -13,5 +15,25 @@ public class Dollar {
 
     public Dollar times(int multiplier) {
         return new Dollar(amount * multiplier);
+    }
+
+    /**
+     * auto generate IDE
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Dollar dollar = (Dollar) o;
+        return amount == dollar.amount;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount);
     }
 }
