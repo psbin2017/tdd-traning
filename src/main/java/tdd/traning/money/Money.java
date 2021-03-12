@@ -5,19 +5,23 @@ import lombok.Getter;
 import java.util.Objects;
 
 @Getter
-public class Money {
+public class Money implements Expression {
 
     private int amount;
 
     private String currency;
 
-    public Money(int amount, String currency) {
+    private Money(int amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
     public Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
+    }
+
+    public Expression plus(int addend) {
+        return new Money( amount + addend, currency);
     }
 
     public static Money dollar(int amount) {
