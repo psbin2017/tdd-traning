@@ -2,12 +2,12 @@ package tdd.traning.money;
 
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class DollarTest {
 
     @Test
-    public void testDollarMultiplication() throws Exception {
+    public void testDollar_times() throws Exception {
         // given
         Money dollar = Money.dollar(5);
 
@@ -19,12 +19,9 @@ public class DollarTest {
     }
 
     @Test
-    public void testDollarEquality() throws Exception {
+    public void testDollar_equals() throws Exception {
+        assertNotEquals(Money.dollar(6), Money.dollar(5));
         assertEquals(Money.dollar(5), Money.dollar(5));
     }
 
-    @Test
-    public void testDollarNonEquality() throws Exception {
-        assertNotEquals(Money.dollar(6), Money.dollar(5));
-    }
 }

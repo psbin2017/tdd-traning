@@ -2,12 +2,12 @@ package tdd.traning.money;
 
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class FrancTest {
 
     @Test
-    public void testFrancMultiplication() throws Exception {
+    public void testFranc_times() throws Exception {
         // given
         Money franc = Money.franc(5);
 
@@ -19,12 +19,9 @@ public class FrancTest {
     }
 
     @Test
-    public void testFrancEquality() throws Exception {
+    public void testFranc_equals() throws Exception {
+        assertNotEquals(Money.franc(6), Money.franc(5));
         assertEquals(Money.franc(5), Money.franc(5));
     }
 
-    @Test
-    public void testFrancNonEquality() throws Exception {
-        assertNotEquals(Money.franc(6), Money.franc(5));
-    }
 }

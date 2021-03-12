@@ -1,8 +1,5 @@
 package tdd.traning.money;
 
-/**
- * 금액 합계 표현식
- */
 public class Sum implements Expression {
 
     private Money augend;
@@ -14,8 +11,9 @@ public class Sum implements Expression {
         this.addend = addend;
     }
 
+    @Override
     public Money reduce(String to) {
-        int amount = augend.getAmount() + addend.getAmount();
-        return new Money(amount, to);
+        return new Money(augend.getAmount() + addend.getAmount(), to);
     }
+
 }

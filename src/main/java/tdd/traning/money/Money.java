@@ -16,18 +16,6 @@ public class Money implements Expression {
         this.currency = currency;
     }
 
-    public Money times(int multiplier) {
-        return new Money(amount * multiplier, currency);
-    }
-
-    public Money reduce(String to) {
-        return this;
-    }
-
-    public Expression plus(Money addend) {
-        return new Sum(this, addend);
-    }
-
     public static Money dollar(int amount) {
         return new Money(amount, "USD");
     }
@@ -36,9 +24,11 @@ public class Money implements Expression {
         return new Money(amount, "CHF");
     }
 
-    /**
-     * auto generate IDE
-     */
+    @Override
+    public Money reduce(String to) {
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -48,20 +38,15 @@ public class Money implements Expression {
             return false;
         }
         Money money = (Money) o;
-        return amount == money.amount
-                && currency.equals(money.currency);
+        return amount == money.amount && currency.equals(money.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount);
+        return Objects.hash(amount, currency);
     }
 
-    @Override
-    public String toString() {
-        return "Money{" +
-                "amount=" + amount +
-                ", currency='" + currency + '\'' +
-                '}';
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
     }
 }
