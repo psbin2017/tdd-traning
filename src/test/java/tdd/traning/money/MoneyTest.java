@@ -20,6 +20,20 @@ public class MoneyTest {
     }
 
     @Test
+    public void testNotEqualMoney_sumReduce() throws Exception {
+        // given
+        Expression sum = new Sum(Money.dollar(5), Money.franc(10));
+        Bank bank = new Bank();
+
+        // when
+        bank.addRate(Currency.FRANC, Currency.DOLLAR, 2);
+        Money money = bank.reduce(sum, Currency.DOLLAR);
+
+        // then
+        System.out.println(money.toString());
+    }
+
+    @Test
     public void testRate_addRate() throws Exception {
         // given
         Bank bank = new Bank();

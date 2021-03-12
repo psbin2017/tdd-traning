@@ -1,10 +1,12 @@
 package tdd.traning.money;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Objects;
 
 @Getter
+@ToString
 public class Money implements Expression {
 
     private int amount;
