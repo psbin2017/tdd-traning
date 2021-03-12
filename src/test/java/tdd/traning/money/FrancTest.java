@@ -9,22 +9,22 @@ public class FrancTest {
     @Test
     public void testFrancMultiplication() throws Exception {
         // given
-        Franc franc = new Franc(5);
+        Money franc = Money.franc(5);
 
         // when
 
         // then
-        assertNotEquals(new Franc(5), franc.times(2));
-        assertEquals(new Franc(10), franc.times(2));
+        assertNotEquals(Money.franc(5), franc.times(2));
+        assertEquals(Money.franc(10), franc.times(2));
     }
 
     @Test
     public void testFrancEquality() throws Exception {
-        assertEquals(new Franc(5), new Franc(5));
+        assertEquals(Money.franc(5), Money.franc(5));
     }
 
     @Test
     public void testFrancNonEquality() throws Exception {
-        assertNotEquals(new Franc(6), new Franc(5));
+        assertNotEquals(Money.franc(6), Money.franc(5));
     }
 }

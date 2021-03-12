@@ -9,22 +9,22 @@ public class DollarTest {
     @Test
     public void testDollarMultiplication() throws Exception {
         // given
-        Dollar dollar = new Dollar(5);
+        Money dollar = Money.dollar(5);
 
         // when
 
         // then
-        assertNotEquals(new Dollar(5), dollar.times(2));
-        assertEquals(new Dollar(10), dollar.times(2));
+        assertNotEquals(Money.dollar(5), dollar.times(2));
+        assertEquals(Money.dollar(10), dollar.times(2));
     }
 
     @Test
     public void testDollarEquality() throws Exception {
-        assertEquals(new Dollar(5), new Dollar(5));
+        assertEquals(Money.dollar(5), Money.dollar(5));
     }
 
     @Test
     public void testDollarNonEquality() throws Exception {
-        assertNotEquals(new Dollar(6), new Dollar(5));
+        assertNotEquals(Money.dollar(6), Money.dollar(5));
     }
 }

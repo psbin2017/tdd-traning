@@ -5,12 +5,22 @@ import lombok.Getter;
 import java.util.Objects;
 
 @Getter
-public class Money {
+public abstract class Money {
 
     private int amount;
 
     public Money(int amount) {
         this.amount = amount;
+    }
+
+    public abstract Money times(int multiplier);
+
+    public static Dollar dollar(int amount) {
+        return new Dollar(amount);
+    }
+
+    public static Franc franc(int amount) {
+        return new Franc(amount);
     }
 
     /**
