@@ -13,10 +13,33 @@ public class MoneyTest {
         Bank bank = new Bank();
 
         // when
-        Money money = bank.reduce(sum, "USD");
+        Money money = bank.reduce(sum, Currency.DOLLAR);
 
         // then
         assertEquals(Money.dollar(20), money);
+    }
+
+    @Test
+    public void testRate_addRate() throws Exception {
+        // given
+        Bank bank = new Bank();
+
+        // when
+        bank.addRate(Currency.DOLLAR, Currency.WON, 2);
+
+        // then
+        assertEquals(2, bank.rate(Currency.DOLLAR, Currency.WON));
+    }
+
+    @Test
+    public void testRate_rateEquality() throws Exception {
+        // given
+        Bank bank = new Bank();
+
+        // when
+
+        // then
+        assertEquals(1, bank.rate(Currency.DOLLAR, Currency.DOLLAR));
     }
 
 }

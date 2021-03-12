@@ -9,24 +9,25 @@ public class Money implements Expression {
 
     private int amount;
 
-    private String currency;
+    private Currency currency;
 
-    public Money(int amount, String currency) {
+    public Money(int amount, Currency currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
     public static Money dollar(int amount) {
-        return new Money(amount, "USD");
+        return new Money(amount, Currency.DOLLAR);
     }
 
     public static Money franc(int amount) {
-        return new Money(amount, "CHF");
+        return new Money(amount, Currency.FRANC);
     }
 
     @Override
-    public Money reduce(String to) {
-        return this;
+    public Money reduce(Bank bank, Currency to) {
+        int rate = bank.rate(currency, to);
+        return new Money(amount / rate, to);
     }
 
     @Override
