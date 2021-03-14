@@ -22,7 +22,10 @@ public class MoneyTest {
     @Test
     public void testNotEqualMoney_sumReduce() throws Exception {
         // given
-        Expression sum = new Sum(Money.dollar(5), Money.franc(10));
+        Expression fiveDollars = Money.dollar(5);
+        Expression tenFrancs = Money.franc(10);
+
+        Expression sum = new Sum(fiveDollars, tenFrancs);
         Bank bank = new Bank();
 
         // when
@@ -30,7 +33,7 @@ public class MoneyTest {
         Money money = bank.reduce(sum, Currency.DOLLAR);
 
         // then
-        System.out.println(money.toString());
+        assertEquals(Money.dollar(10), money);
     }
 
     @Test

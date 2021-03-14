@@ -2,23 +2,25 @@ package tdd.traning.money;
 
 public class Sum implements Expression {
 
-    private Money augend;
+    private Expression augend;
 
-    private Money addend;
+    private Expression addend;
 
-    public Sum(Money augend, Money addend) {
+    public Sum(Expression augend, Expression addend) {
         this.augend = augend;
         this.addend = addend;
     }
 
     @Override
     public Money reduce(Bank bank, Currency to) {
-        int augendRate = bank.rate(augend.getCurrency(), to);
-        int addendRate = bank.rate(addend.getCurrency(), to);
-
-        // 코드가 좀 지저분해 보인다.
-        int amount = (augend.getAmount() / augendRate) + (addend.getAmount() / addendRate);
+        int amount = augend.reduce(bank, to).getAmount() + addend.reduce(bank, to).getAmount();
         return new Money(amount, to);
+    }
+
+    @Override
+    public Expression plus(Expression addend) {
+        // todo
+        return null;
     }
 
 }

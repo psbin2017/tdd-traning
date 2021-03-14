@@ -49,7 +49,11 @@ public class Money implements Expression {
         return Objects.hash(amount, currency);
     }
 
-    public Money times(int multiplier) {
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
+    }
+
+    public Expression times(int multiplier) {
         return new Money(amount * multiplier, currency);
     }
 }
