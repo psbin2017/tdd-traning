@@ -33,6 +33,16 @@ public class Money implements Expression {
     }
 
     @Override
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
+    }
+
+    @Override
+    public Expression times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -47,13 +57,5 @@ public class Money implements Expression {
     @Override
     public int hashCode() {
         return Objects.hash(amount, currency);
-    }
-
-    public Expression plus(Expression addend) {
-        return new Sum(this, addend);
-    }
-
-    public Expression times(int multiplier) {
-        return new Money(amount * multiplier, currency);
     }
 }
