@@ -59,14 +59,4 @@ public class MoneyTest {
         assertEquals(1, bank.rate(Currency.DOLLAR, Currency.DOLLAR));
     }
 
-    @Test
-    public void testPlus() throws Exception {
-        // given
-        Expression plus = Money.dollar(5).plus(Money.dollar(5));
-
-        // when
-
-        // the
-    }
-
 }

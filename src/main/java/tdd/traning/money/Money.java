@@ -18,10 +18,16 @@ public class Money implements Expression {
         this.currency = currency;
     }
 
+    /**
+     * 달러 화폐를 생성한다.
+     */
     public static Money dollar(int amount) {
         return new Money(amount, Currency.DOLLAR);
     }
 
+    /**
+     * 프랑 화폐를 생성한다.
+     */
     public static Money franc(int amount) {
         return new Money(amount, Currency.FRANC);
     }
